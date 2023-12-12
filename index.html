@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Trading App</title>
+    <style>
+        /* Your existing styles here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #4caf50;
+            overflow: hidden;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        nav a {
+            display: block;
+            color: #f2f2f2;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        #stocks-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        #stocks-table th, #stocks-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+
+        #stocks-table th {
+            background-color: #f2f2f2;
+        }
+
+        #buy-form {
+            margin-top: 20px;
+        }
+
+        #buy-form label, #buy-form input, #buy-form button {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        #buy-form button {
+            padding: 10px;
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+        }
+
+        .content-section:hover {
+            background-color: #f2f2f2;
+        }
+
+        .content-section h2 {
+            color: #333;
+            margin: 0;
+        }
+
+        .content-section p {
+            color: #555;
+        }
+
+        .content-section ol,
+        .content-section ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+        .content-section ol li,
+        .content-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .content-section ol {
+            list-style-type: decimal;
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+        }
+
+        /* Alternate the layout for even and odd sections */
+        .content-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Style for the expanded state */
+        .expanded {
+            height: auto;
+            opacity: 1;
+            overflow: visible;
+        }
+
+        /* Hide details by default */
+        .content-details {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: height 0.3s ease, opacity 0.3s ease;
+        }
+        .content-section {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            padding: 10px;
+        }
+
+        .content-section:hover {
+            background-color: #f2f2f2;
+        }
+
+        .content-section h2 {
+            color: #333;
+            margin: 0;
+        }
+
+        .content-section p {
+            color: #555;
+        }
+
+        .content-section ol,
+        .content-section ul {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-left: 20px;
+        }
+
+        .content-section ol li,
+        .content-section ul li {
+            margin-bottom: 8px;
+        }
+
+        .content-section ol {
+            list-style-type: decimal;
+        }
+
+        .content-section ul {
+            list-style-type: disc;
+        }
+
+        /* Alternate the layout for even and odd sections */
+        .content-section:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        /* Style for the expanded state */
+        .expanded .content-details {
+            height: auto;
+            opacity: 1;
+            overflow: visible;
+        }
+
+        /* Hide details by default */
+        .content-details {
+            height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: height 0.3s ease, opacity 0.3s ease;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+    
+        footer div {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+    
+        footer p {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Trading App</h1>
+    </header>
+
+    <nav>
+        <a href="index.html" onclick="openTab('portfolio')">Home</a>
+        <a href="stock.html" onclick="openTab('stocks')">Stocks</a>
+        <a href="#" onclick="openTab('buy')">Buy</a>
+        <a href="contact.html" onclick="openTab('sell')">contact us</a>
+        
+    </nav>
+
+    <main id="main-content">
+        <section id="welcome-section">
+            <h2>Welcome to the Online Trading App!</h2>
+            <p>This platform allows you to explore and trade various stocks in real-time. Navigate through the tabs to view available stocks, make purchases, sell your holdings, and track your portfolio.</p>
+        </section>
+
+        <section class="content-section" id="start-trading-section">
+            <h2>How to Start Stock Trading</h2>
+            <div class="content-details">
+                <p>Getting started with stock trading is easy. Follow these steps to begin your journey:</p>
+                <ol>
+                    <li>Open an account with a reliable brokerage.</li>
+                    <li>Research and choose stocks that align with your investment goals.</li>
+                    <li>Place your first trade and monitor your investments.</li>
+                </ol>
+            </div>
+        </section>
+
+        <section class="content-section" id="learn-trading-section">
+            <h2>Learn Stock Trading Strategies</h2>
+            <div class="content-details">
+                <p>Successful trading requires knowledge and strategy. Here are some key trading strategies to explore:</p>
+                <ul>
+                    <li>Day Trading</li>
+                    <li>Swing Trading</li>
+                    <li>Value Investing</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="content-section" id="recover-loss-section">
+            <h2>How to Recover from Trading Losses</h2>
+            <div class="content-details">
+                <p>Experiencing losses is a part of trading. Here are tips to recover and learn from setbacks:</p>
+                <ol>
+                    <li>Review and analyze your losing trades.</li>
+                    <li>Adjust your strategy based on lessons learned.</li>
+                    <li>Diversify your portfolio to mitigate risk.</li>
+                </ol>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <p>&copy; 2023 Online Trading App</p>
+            <p>Contact: info@tradingapp.com</p>
+        </div>
+    </footer>
+
+    <script>
+        // JavaScript to toggle the expanded state
+        document.querySelectorAll('.content-section').forEach(function(section) {
+            section.addEventListener('click', function() {
+                this.classList.toggle('expanded');
+            });
+        });
+    </script>
+</body>
+</html>
